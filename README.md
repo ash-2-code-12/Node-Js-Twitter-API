@@ -1,8 +1,44 @@
 # Twitter
 
-Given an `app.js` file and a database file `twitterClone.db` consisting of five tables `user`, `follower`, `tweet`, `reply`, and `like`.
+# Social Media Backend API
 
-Write APIs to perform operations on the tables `user`, `follower`, `tweet`, `reply`, and `like` containing the following columns,
+This is a backend implementation for a social media platform, providing APIs for user authentication, profile management, posts, and social interactions like following and accepting follow requests.
+
+## Features
+
+- **Authentication**
+  - User registration and login
+  - Password hashing for security
+  - JSON Web Tokens (JWT) for authentication
+
+- **Profile Management**
+  - View user profiles
+  - Update user details
+
+- **Posts**
+  - Create, edit, delete, and retrieve posts
+  - Fetch user-specific posts
+
+- **Social Features**
+  - Send follow requests
+  - Accept or decline follow requests
+  - Fetch follower and following lists
+
+## Technologies Used
+
+- **Backend Framework**: Node.js with Express.js
+- **Database**: SQLite
+- **Authentication**: JWT (JSON Web Tokens)
+- **ORM**: Sequelize (if applicable)
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd social-media-backend
+
+APIs to perform operations on the tables `user`, `follower`, `tweet`, `reply`, and `like` containing the following columns,
 
 **User Table**
 
@@ -62,6 +98,29 @@ Here, if user1 follows user2 then,
   "password":"biden@123"
 }
 ```
+# API Endpoints
+
+## Authentication
+- **POST /register** - Register a new user
+- **POST /login** - Login and receive a JWT
+
+## User Profile
+- **GET /user/profile/:userId** - View a user's profile
+- **PUT /user/update** - Update the logged-in user's profile
+
+## Posts
+- **POST /post** - Create a new post
+- **GET /post/:postId** - Retrieve a specific post
+- **GET /posts** - Retrieve all posts by the logged-in user
+- **PUT /post/:postId** - Update a specific post
+- **DELETE /post/:postId** - Delete a specific post
+
+## Social Features
+- **POST /follow/request/:userId** - Send a follow request
+- **POST /follow/accept/:requestId** - Accept a follow request
+- **GET /followers** - Get the list of followers
+- **GET /following** - Get the list of users the logged-in user is following
+
 
 <Section id="section1" >
 
@@ -526,9 +585,3 @@ Created a Tweet
 </Section>
 
 <br/>
-
-Use `npm install` to install the packages.
-
-**Export the express instance using the default export syntax.**
-
-**Use Common JS module syntax.**
